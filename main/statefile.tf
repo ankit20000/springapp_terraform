@@ -1,9 +1,10 @@
 terraform {
-  backend "s3" {
-    bucket  = "github-terraform-bucket"
-    key     = "infra.tfstate"
-    region  = "ap-south-1"
-    profile = "default"
-    dynamodb_table = "vegeta-terraform-remote-state-table"
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "Enterprise-Cloud-01"
+
+    workspaces {
+      name = "springapp_terraform"
+    }
   }
 }
