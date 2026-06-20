@@ -1,4 +1,4 @@
-ata "aws_availability_zones" "available_zones" {}
+data "aws_availability_zones" "available_zones" {}
 
 # create security group for the database
 resource "aws_security_group" "database_security_group" {
